@@ -1,5 +1,23 @@
 import random
 
+def generateNewPassword():
+    print('\n¿Desea generar otra contraseña?\n')
+    option = input('Escribe [Y/n]: ')
+    if(option == 'Y' or option == '' or option == 'y'):
+        printPassword()
+        generateNewPassword()
+    elif option == 'n' or option == 'N':
+        exit()
+    else:
+        print('\nEscriba una opcion correcta!')
+        generateNewPassword()
+
+
+def printPassword():
+    password = generar_contraseña()
+    print(f'\nTu nueva contraseña es: {password}')
+
+
 def generar_contraseña():
     mayusculas = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M']
     minusculas = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', '']
@@ -10,7 +28,7 @@ def generar_contraseña():
 
     password = []
 
-    length = int(input(f'Ingrese la longitud que desea para la contraseña: '))
+    length = int(input(f'\nIngrese la longitud que desea para la contraseña: '))
 
     for i in range(length):
         caracter_random = random.choice(caracteres)
@@ -25,8 +43,8 @@ def run():
         Este es un generador de contraseñas
         ------------------------------------
     """)
-    password = generar_contraseña()
-    print(f'\nTu nueva contraseña es: {password}')
+    printPassword()
+    generateNewPassword()
 
 
 if __name__ == '__main__':
