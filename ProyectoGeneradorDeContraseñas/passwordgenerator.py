@@ -1,8 +1,8 @@
 import random
 
 def generateNewPassword():
-    print('\n¿Desea generar otra contraseña?\n')
-    option = input('Escribe [Y/n]: ')
+    option = input('\n¿Desea generar otra contraseña? [Y/n]: ')
+    
     if(option == 'Y' or option == '' or option == 'y'):
         printPassword()
         generateNewPassword()
